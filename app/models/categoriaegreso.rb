@@ -1,0 +1,2 @@
+class Categoriaegreso < ApplicationRecord
+end

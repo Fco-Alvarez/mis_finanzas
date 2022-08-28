@@ -1,0 +1,14 @@
+<p style="color: green"><%= notice %></p>
+
+<h1>Egresos</h1>
+
+<div id="egresos">
+  <% @egresos.each do |egreso| %>
+    <%= render egreso %>
+    <p>
+      <%= link_to "Show this egreso", egreso %>
+    </p>
+  <% end %>
+</div>
+
+<%= link_to "New egreso", new_egreso_path %>

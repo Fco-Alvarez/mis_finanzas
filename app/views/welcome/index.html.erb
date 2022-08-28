@@ -1,0 +1,54 @@
+<p id="notice"><%= notice %></p>
+<h1>Mis movimientos</h1>
+<table class="table table-hover">
+  <thead>
+    <tr>
+      <th>Fecha</th>
+      <th>Categoria</th>
+      <th>Glosa</th>
+      <th>Monto</th>
+      <th colspan="3"></th>
+    </tr>
+  </thead>
+    <tbody>
+    <% @ingresos.each do |ingreso| %>
+      <tr>
+        <td><%= ingreso.fecha %></td>
+        <td><%= ingreso.categoriaegreso %></td>
+        <td><%= ingreso.glosa %></td>
+        <td><%= ingreso.monto %></td>
+        <% if persona_signed_in? %>
+        <td><%= link_to "Ver", ingreso, class: "btn btn-outline-dark" %></td>
+        <td><%= link_to "Editar", edit_ingreso_path(ingreso), class: "btn btn-outline-dark" %></td>
+        <td><%= link_to "Eliminar", ingreso, method: :delete, data: { confirm: "¿Estás seguro?" }, class: "btn btn-outline-dark" %></td>
+        <% else %>
+		<td><%= link_to "Ver", ingreso, class: "btn btn-outline-dark" %></td>
+		<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+    <tbody>
+    <% @egresos.each do |egreso| %>
+      <tr>
+        <td><%= egreso.fecha %></td>
+        <td><%= egreso.categoriaegreso %></td>
+        <td><%= egreso.glosa %></td>
+        <td><%= egreso.monto %></td>
+        <% if persona_signed_in? %>
+        <td><%= link_to "Ver", egreso, class: "btn btn-outline-dark" %></td>
+        <td><%= link_to "Editar", edit_egreso_path(egreso), class: "btn btn-outline-dark" %></td>
+        <td><%= link_to "Eliminar", egreso, method: :delete, data: { confirm: "¿Estás seguro?" }, class: "btn btn-outline-dark" %></td>
+        <% else %>
+		<td><%= link_to "Ver", egreso, class: "btn btn-outline-dark" %></td>
+		<% end %>
+      </tr>
+    <% end %>
+  </tbody>
+</table>
+
+<% if persona_signed_in? %>
+<%= link_to "Nuevo Ingreso", new_ingreso_path, class: "btn btn-outline-dark" %>
+<%= link_to "Nuevo Egreso", new_egreso_path, class: "btn btn-outline-dark" %>
+<%= link_to "Nueva Categoria Ingreso", new_categoriaingreso_path, class: "btn btn-outline-dark" %>
+<%= link_to "Nueva Categoria Egreso", new_categoriaegreso_path, class: "btn btn-outline-dark" %>
+<% end %>

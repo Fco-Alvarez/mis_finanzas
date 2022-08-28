@@ -1,0 +1,10 @@
+<p style="color: green"><%= notice %></p>
+
+<%= render @categoriaingreso %>
+
+<div>
+  <%= link_to "Edit this categoriaingreso", edit_categoriaingreso_path(@categoriaingreso) %> |
+  <%= link_to "Back to categoriaingresos", categoriaingresos_path %>
+
+  <%= button_to "Destroy this categoriaingreso", @categoriaingreso, method: :delete %>
+</div>

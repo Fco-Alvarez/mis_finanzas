@@ -1,0 +1,2 @@
+class Categoriaingreso < ApplicationRecord
+end

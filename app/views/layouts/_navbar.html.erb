@@ -1,0 +1,17 @@
+<nav class="navbar navbar-dark bg-primary">
+  <div class="container-fluid">
+    <a class="navbar-brand" href="#">Mis Finanzas</a>
+    <% if persona_signed_in? %>
+            <div>
+                <p>Bienvenido <%= current_persona.email %>!!</p>
+                <%= link_to "Cerrar Sesión", destroy_persona_session_path, method: :delete, class: "btn btn-outline-dark" %>
+            </div>
+        <% else %>
+        <div>
+                <%= link_to "Inicio", root_path, class: "btn btn-outline-success" %>
+                <%= link_to "Registar Persona", new_persona_registration_path, class: "btn btn-outline-success" %>
+                <%= link_to "Login Persona", new_persona_session_path, class: "btn btn-outline-success" %>
+            </div>
+        <% end %>
+    </div>
+</nav>

@@ -1,0 +1,2 @@
+module CategoriaegresosHelper
+end

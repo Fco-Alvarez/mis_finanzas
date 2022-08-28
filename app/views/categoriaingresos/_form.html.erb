@@ -1,0 +1,22 @@
+<%= form_with(model: categoriaingreso) do |form| %>
+  <% if categoriaingreso.errors.any? %>
+    <div style="color: red">
+      <h2><%= pluralize(categoriaingreso.errors.count, "error") %> prohibited this categoriaingreso from being saved:</h2>
+
+      <ul>
+        <% categoriaingreso.errors.each do |error| %>
+          <li><%= error.full_message %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div>
+    <%= form.label :categoria, style: "display: block" %>
+    <%= form.text_field :categoria %>
+  </div>
+
+  <div>
+    <%= form.submit %>
+  </div>
+<% end %>
